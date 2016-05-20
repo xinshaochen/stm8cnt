@@ -1591,6 +1591,12 @@
       <name>$PROJ_DIR$\..\Refer\src\eeprom.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\Refer\src\EXIT.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Refer\src\key.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\Refer\src\led.c</name>
     </file>
     <file>

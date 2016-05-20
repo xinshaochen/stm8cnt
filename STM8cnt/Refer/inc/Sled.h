@@ -3,6 +3,32 @@
 
 #include "stm8s.h"
 
+
+#define Dnum 6
+extern u8 const LedCode[];
+extern u8 Order[Dnum];
+extern u32 num;
+extern u8 Gen[Dnum];
+
+
+
+#define D1S(x) if(x) D1_SET; else D1_CLR;
+#define D2S(x) if(x) D2_SET; else D2_CLR;
+#define D3S(x) if(x) D3_SET; else D3_CLR;
+#define D4S(x) if(x) D4_SET; else D4_CLR;
+#define D5S(x) if(x) D5_SET; else D5_CLR;
+#define D6S(x) if(x) D6_SET; else D6_CLR;
+#define AS(x) if(x) A_SET; else A_CLR;
+#define BS(x) if(x) B_SET; else B_CLR;
+#define CS(x) if(x) C_SET; else C_CLR;
+#define DS(x) if(x) D_SET; else D_CLR;
+#define ES(x) if(x) E_SET; else E_CLR;
+#define FS(x) if(x) F_SET; else F_CLR;
+#define GS(x) if(x) G_SET; else G_CLR;
+
+
+
+
 #define A GPIOD
 #define AP (1<<4)
 #define B GPIOC
@@ -49,6 +75,8 @@
 #define G_CLR G->ODR&=~GP
 
 
+
+
 #define D1_SET D1->ODR|=D1P
 #define D1_CLR D1->ODR&=~D1P
 #define D2_SET D2->ODR|=D2P
@@ -65,7 +93,7 @@
 
 
 void SLED_Init();
-
+void NumSet(u32 num);
 
 
 #endif

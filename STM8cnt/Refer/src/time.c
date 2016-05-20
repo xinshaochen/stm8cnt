@@ -2,6 +2,7 @@
 #include "stm8s.h"
 #include "led.h"
 #include "motor.h"
+#include "Sled.h"
 
 #include "ALL_Includes.h"
 
@@ -41,7 +42,7 @@ void TIM2_Init(void)
 void TIM4_Init(void)
 {
 	TIM4->PSCR = 0x04;
-	TIM4->ARR = 99;
+	TIM4->ARR = 200;
 	TIM4->IER |= BIT(0);
 
 	TIM4->CR1 |= BIT(0);
@@ -51,13 +52,23 @@ void TIM4_Init(void)
 
 
 u8 i=0;
-u8 motor_pwm=0;
-u8 LPWM=0;
-u8 RPWM=0;
+u16 tim=0;
 #pragma vector = TIM4_Updata_vector
 __interrupt void TIM4_Updata_IRQHandler(void)
 {
     sim();//关总中断
+    tim++;
+    if(tim>=25)
+    {
+      tim=0;
+       DIo(Order[i%Dnum]);
+       SetIo(LedCode[Gen[i%Dnum]]);
+       i++;
+       if(i>Dnum)
+         i=0;
+    }
+    
+    
 //i++;
 //if (i <= RL) LED_R_CLR;
 //else LED_R_SET;
@@ -70,14 +81,14 @@ __interrupt void TIM4_Updata_IRQHandler(void)
 //    
     
     
-    motor_pwm++; 
-    if(motor_pwm>16) motor_pwm=0;
-    
-    if(motor_pwm<=LPWM) LeftPWM_SET;
-    else LeftPWM_CLR;
-    if(motor_pwm<=RPWM) RightPWM_SET;
-      else RightPWM_CLR;
-    
+//    motor_pwm++; 
+//    if(motor_pwm>16) motor_pwm=0;
+//    
+//    if(motor_pwm<=LPWM) LeftPWM_SET;
+//    else LeftPWM_CLR;
+//    if(motor_pwm<=RPWM) RightPWM_SET;
+//      else RightPWM_CLR;
+//    
     
     
     TIM4->SR1 &=~BIT(0);//清标志位

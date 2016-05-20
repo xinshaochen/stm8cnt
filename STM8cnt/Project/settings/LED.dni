@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=-1851494574
+Checksum=1679425549
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -73,10 +73,11 @@ Category=_ 0
 LoggingEnabled=_ 0
 LogFile=_ ""
 [Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\main.c}.73.7" 1 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\main.c}.66.9" 1 0 0 0 "" 0 ""
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\..\Refer\src\eeprom.c}.97.3" 0 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\main.c}.105.9" 1 0 0 0 "" 0 ""
 Count=2
 [Aliases]
-A0=_ "F:\私用\今明\代码\stm8s105k4t6\工程2\User\main.c" ""
-Count=1
+A0=_ "F:\Going\stm8计数器\code\STM8\Refer\src\remote.c" ""
+A1=_ "F:\私用\今明\代码\stm8s105k4t6\工程2\User\main.c" ""
+Count=2
 SuppressDialog=1

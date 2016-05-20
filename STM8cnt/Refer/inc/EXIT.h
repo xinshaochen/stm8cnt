@@ -2,9 +2,11 @@
 #define  _EXIT_H
 
 #include "stm8s.h"
+#include "Sled.h"
 
-#define EXIT_GPIO         GPIOD
-#define EXIT_PIN          (1<<4)
+#define ADD         GPIOC
+#define ADDP          (1<<6)
+#define ADDS ((ADD->IDR&ADDP)>>6)
 
 #define   TLI_vector               0x02
 #define   EXTI0_PA_vector          0x05

@@ -17,7 +17,7 @@ void ADC_Init(u8 Channel)
     ADC1->CSR &=0X00;
     ADC1->CSR |= Channel;//选择通道
     ADC1->CR1 &=~BIT(1);//单次转换模式
-    
+    //ADC1->CR1 |=BIT(1);
     ADC1->CR2 |= BIT(3);//数据右对齐
     
     ADC1->CR1 |= BIT(0);//把AD唤醒

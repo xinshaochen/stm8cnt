@@ -2,8 +2,8 @@
 #define _LED_H_
 #include "stm8s.h"
 
-#define LED_R GPIOA
-#define LED_R_P (1<<1)
+#define LED_R GPIOC
+#define LED_R_P (1<<6)
 #define LED_G GPIOD
 #define LED_G_P (1<<6)
 #define LED_B GPIOD

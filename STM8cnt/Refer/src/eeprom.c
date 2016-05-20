@@ -10,7 +10,42 @@ void eeprom_read(u16 u16Addr, u8 *pdatas, u8 len)
     pdatas[j]=eep[j];         
   } 
 } 
-
+void eep_32bit_read(u16 u16Addr, u32 *pdata)
+{
+  u8 *eep=(u8 *)u16Addr;
+  u8 HHdata,Hdata,Ldata,LLdata;
+  HHdata = *eep;
+  Hdata = *(eep+1);
+  Ldata = *(eep+2);
+  LLdata = *(eep+3);
+  *pdata = (u32)HHdata<<24;
+  *pdata |= (u32)Hdata<<16;
+  *pdata |= (u32)Ldata<<8;
+  *pdata |= LLdata;
+}
+void eep_32bit_write(u16 u16Addr, u32 pdata)
+{
+  u8 *eep=(u8*)u16Addr; 
+  u8 HHdata,Hdata,LLdata,Ldata;
+  HHdata = (u8)(pdata>>24);
+  Hdata = (u8)(pdata>>16);
+  Ldata = (u8)(pdata>>8);
+  LLdata = (u8)(pdata);
+  
+  FLASH->DUKR=EEPMASS1;                //Ëø1             ÃÜÔ¿  
+  FLASH->DUKR=EEPMASS2;                //Ëø2             ÃÜÔ¿ 
+  while(!(FLASH->IAPSR&0x08));         //µÈ´ý½âÃÜ¾ÍÐ÷
+  FLASH->CR2 |= 0x40;     //               
+  FLASH->NCR2 &= ~0x40;   //ÉèÖÃ×Ö±à³Ì 
+  
+  *eep = HHdata;
+  *(eep+1) = Hdata;
+  *(eep+2) = Ldata;
+  *(eep+3) = LLdata;
+  while(!(FLASH->IAPSR&0x04)); 
+  FLASH->IAPSR &=0xf7; 
+  
+}
 void eep_16bit_read(u16 u16Addr, u16 *pdata)
 {
   u8 *eep=(u8 *)u16Addr;
