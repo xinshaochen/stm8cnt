@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=1679425549
+Checksum=-502832097
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -31,6 +31,12 @@ UseTrigger=1
 TriggerName=main
 LimitSize=0
 ByteLimit=50
+[TraceHelper]
+Enabled=0
+ShowSource=1
+[watch_formats]
+Fmt0={W}0:a	4	0
+Fmt1={W}0:key	2	0
 [CallStackLog]
 Enabled=0
 [DriverProfiling]
@@ -38,6 +44,7 @@ Enabled=0
 Mode=1
 Graph=0
 Symbiont=0
+Exclusions=
 [InterruptLog]
 LogEnabled=0
 SumEnabled=0
@@ -45,6 +52,14 @@ GraphEnabled=0
 ShowTimeLog=1
 ShowTimeSum=1
 SumSortOrder=0
+[DataLog]
+LogEnabled=0
+SumEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
+[Breakpoints2]
+Count=0
 [Interrupts]
 Enabled=1
 [MemoryMap]
@@ -54,12 +69,9 @@ UseAuto=0
 TypeViolation=1
 UnspecRange=1
 ActionState=1
-[TraceHelper]
+[Trace1]
 Enabled=0
 ShowSource=1
-[watch_formats]
-Fmt0={W}0:a	4	0
-Fmt1={W}0:key	2	0
 [DataSample]
 LogEnabled=0
 GraphEnabled=0
